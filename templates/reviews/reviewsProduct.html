@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} {{mobile.product_name}} {% endblock title %}
+
+{% block reviewsactive %}active{% endblock reviewsactive %}
+
+{% block body %} 
+<div class="container my-2 text-white">
+    <h2 class="blog-post-title">{{mobile.product_name}}</h2>
+    <p class="blog-post-meta">{{mobile.release_date}} by <a href="#">{{mobile.brand}}</a></p>
+    <p>{{mobile.description|safe}}</p>
+    <p class="text-success">Design rated - {{mobile.design}}</p>
+    <p class="text-success">Camera rated - {{mobile.camera}}</p>
+    <p class="text-success">Battery rated - {{mobile.battery}}</p>
+    <p class="text-success">Performance rated - {{mobile.performance}}</p>
+    <p class="text-success">Value for Money rated - {{mobile.value_for_money}}</p>
+</div>
+
+{% endblock body %}

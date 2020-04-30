@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviews7x{% endblock title %}
+
+{% block homeactive %}active{% endblock homeactive %}
+
+{% block body %}
+
+
+
+<div class="container my-3">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Reviews7x!</h1>
+        <p class="lead"></p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="/reviews/" role="button">Go to Reviews</a>
+    </div>
+</div>
+
+
+<div class="container text-light">
+    <div class="py-5 text-center">
+        <h2>Check our reviews</h2>
+        <p class="lead">We are sure you'll love it.</p>
+    </div>
+
+    <h2>Our popular blogposts</h2>
+    <div class="container my-4">
+        <h2>Mobiles</h2>
+        {% for mobile in allMobiles %}
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary"><a href="/reviews/{{mobile.m_slug}}">{{mobile.product_name}}</a></strong>
+              <div class="mb-1 text-muted">Release Date {{mobile.release_date}}</div>
+              <p class="card-text mb-auto"><div class="preview">{{mobile.description|safe|truncatechars:500}}</div></p>
+              <div class="my-4">
+              <a href="/reviews/{{mobile.m_slug}}" role="button" class="btn btn-primary">Check this Product</a></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock body %}
